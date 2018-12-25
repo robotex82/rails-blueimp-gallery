@@ -1,0 +1,44 @@
+= Rails Blueimp Gallery
+
+This is a rails implementation of the blueimp gallery. Available here: https://github.com/blueimp/Gallery
+
+= Installation
+
+Add it to you Gemfile:
+
+    # Gemfile
+    gem 'rails-blueimp-gallery'
+
+Generate the initializer:
+
+    $ rails g blueimp:gallery:install
+
+Add the javascripts to your assets:
+
+    # ./app/assets/javascripts/application.js
+    //= require blueimp-gallery
+    
+Add the stylesheets to your assets:
+
+    # ./app/assets/stylesheets/application.css
+    /*
+     *= require blueimp-gallery
+     */
+
+Add the Helper to your ApplicationController:
+
+    # ./app/controllers/application_controller.rb
+    class ApplicationController < ActionController::Base
+      view_helper Blueimp::Gallery::ApplicationViewHelper, as: :blueimp_gallery_helper
+    end
+
+Add a call to the modal_gallery helper to your layout:
+
+  # app/views/layouts/application.html.erb:
+  <%= blueimp_gallery_helper(self).prepare_modal %>
+
+
+= License
+
+This project rocks and uses MIT-LICENSE.
+
