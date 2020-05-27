@@ -2,6 +2,29 @@
 
 This is a rails implementation of the blueimp gallery. Available here: https://github.com/blueimp/Gallery
 
+= Upgrading to 1.x.x
+
+Starting with 1.0.0 we do not longer include the blueimp gallery js and css anymore.
+
+You will have to load it from a cdn.
+
+HAML:
+
+    # app/layouts/application.html.haml
+    / Blueimp Gallery CSS
+    %link{:crossorigin => "anonymous", :href => "https://cdnjs.cloudflare.com/ajax/libs/blueimp-gallery/2.44.0/css/blueimp-gallery.min.css", :integrity => "sha256-Xqlh2kNfwlaYIadGK+AV287kAwoqLxYd+MoOvCykFoc=", :rel => "stylesheet"}/
+    / Blueimp Gallery JS
+    %script{:crossorigin => "anonymous", :integrity => "sha256-Iwpd2qB3c+LqT25lxnW2SI84aABYcOxdz8StYme/fx0=", :src => "https://cdnjs.cloudflare.com/ajax/libs/blueimp-gallery/2.44.0/js/jquery.blueimp-gallery.min.js"}
+
+ERB:
+
+    # app/layouts/application.html.erb
+    <!-- Blueimp Gallery CSS -->
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/blueimp-gallery/2.44.0/css/blueimp-gallery.min.css" integrity="sha256-Xqlh2kNfwlaYIadGK+AV287kAwoqLxYd+MoOvCykFoc=" rel="stylesheet">/</link>
+    <!-- Blueimp Gallery JS -->
+    <script crossorigin="anonymous" integrity="sha256-Iwpd2qB3c+LqT25lxnW2SI84aABYcOxdz8StYme/fx0=" src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-gallery/2.44.0/js/jquery.blueimp-gallery.min.js"></script>
+
+
 = Installation
 
 Add it to you Gemfile:
@@ -25,7 +48,26 @@ Add the stylesheets to your assets:
      *= require blueimp-gallery
      */
 
-Add the Helper to your ApplicationController:
+Add the blueimp gallery JS/CSS from CDN:
+
+HAML:
+
+    # app/layouts/application.html.haml
+    / Blueimp Gallery CSS
+    %link{:crossorigin => "anonymous", :href => "https://cdnjs.cloudflare.com/ajax/libs/blueimp-gallery/2.44.0/css/blueimp-gallery.min.css", :integrity => "sha256-Xqlh2kNfwlaYIadGK+AV287kAwoqLxYd+MoOvCykFoc=", :rel => "stylesheet"}/
+    / Blueimp Gallery JS
+    %script{:crossorigin => "anonymous", :integrity => "sha256-Iwpd2qB3c+LqT25lxnW2SI84aABYcOxdz8StYme/fx0=", :src => "https://cdnjs.cloudflare.com/ajax/libs/blueimp-gallery/2.44.0/js/jquery.blueimp-gallery.min.js"}
+
+ERB:
+
+    # app/layouts/application.html.erb
+    <!-- Blueimp Gallery CSS -->
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/blueimp-gallery/2.44.0/css/blueimp-gallery.min.css" integrity="sha256-Xqlh2kNfwlaYIadGK+AV287kAwoqLxYd+MoOvCykFoc=" rel="stylesheet">/</link>
+    <!-- Blueimp Gallery JS -->
+    <script crossorigin="anonymous" integrity="sha256-Iwpd2qB3c+LqT25lxnW2SI84aABYcOxdz8StYme/fx0=" src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-gallery/2.44.0/js/jquery.blueimp-gallery.min.js"></script>
+
+
+Add the helper to your ApplicationController:
 
     # ./app/controllers/application_controller.rb
     class ApplicationController < ActionController::Base
